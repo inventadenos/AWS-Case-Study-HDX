@@ -118,31 +118,8 @@ CREATING OUR APPLICATION SERVER
 9. Select your storage type and size
 10. Click Advanced details and select the S3 access role in the IAM instance profile section
 11. Scroll to the end and click launch instance
-12. SSH into the instance and apply the following commands to set up our web application
-    1. amazon-linux-extras enable php8.0 -y
-    2. yum clean metadata
-    3. yum install php-cli php-pdo php-fpm php-mysqlnd -y
-    4. yum install httpd -y
-    5. systemctl start httpd
-    6. systemctl enable httpd
-    7. cd /var/www/html/
-    8. wget http://wordpress.org/latest.tar.gz
-    9. tar -zvxf latest.tar.gz
-    10. cp -r wordpress/* /var/www/html
-    11. rm -rf latest.tar.gz
-    12. rm -rf wordpress
-    13. chmod -R 755 wp-content/
-    14. chown -R apache:apache wp-content/
-    15. Launch the instance with the public IP and hit Let’s go
-    16. DB name = your initial database name
-    17. Username = your master username (when you created your Database)
-    18. Password = your master password (when you created the Database)
-    19. LocalHost = Your Database Endpoint
-    20. Hit “Submit”
-    21. Copy the code in the new window
-    22. vi wp-config.php and paste the copied code, save and close
-    23. rm -rf wp-config-sample.php
-    24. Go back to your word press site and click “Run the installation” 
+12. SSH into the instance and apply the webapp.sh script to set up our web application.
+
 13. Go to your EC2 console and select your application server
 14. SSH into your server and create a directory in your home directory (e.g mkdir /mybucket)
 15. CD into the directory and create files e.g touch test1.txt test2.txt test3.txt
